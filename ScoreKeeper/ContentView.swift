@@ -12,8 +12,7 @@ import SwiftData
 struct ContentView: View {
     @State private var scoreboard = Scoreboard()
     @State private var startingPoints = 0
-
-     
+    @State private var numberOfRounds: Int = 1
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,7 +20,7 @@ struct ContentView: View {
                 .font(.title)
                 .bold()
                 .padding(.bottom)
-            SettingsView(doesHighestScoreWin:$scoreboard.doesHighestScoreWin, startingPoints: $startingPoints)
+            SettingsView(doesHighestScoreWin:$scoreboard.doesHighestScoreWin, startingPoints: $startingPoints, numberOfRounds: $numberOfRounds)
                 .disabled(scoreboard.state != .setup)
             Grid {
                 GridRow{
